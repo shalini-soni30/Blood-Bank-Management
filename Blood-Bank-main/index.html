@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank_Be a Hero, Donate Blood</title>
+    <link rel="shortcut icon" href="./img/imgicon.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #dc2626;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #b91c1c;
+            transform: scale(1.05);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-red-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-3xl font-extrabold text-white tracking-wide no-underline hover:text-black">Blood Bank</a>
+            <div class="flex space-x-6 items-center">
+                <a href="adduser.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Add
+                    User</a>
+                <a href="showUser.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Show
+                    Users</a>
+                <a href="search.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Search
+                    Users</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="hamburger-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5500/Blood-Bank-main/adduser.html" class="nav-link">Add User</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5500/Blood-Bank-main/showUser.html" class="nav-link">Stock of Blood</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Need blood</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5500/Blood-Bank-main/index.html" class="nav-link">Show User</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5500/Blood-Bank-main/search.html" class="nav-link">Search Users</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section with Carousel -->
+    <section class="bg-cover bg-center h-screen overflow-hidden relative">
+        <div id="carouselExampleIndicators" class="carousel slide h-full" data-bs-ride="carousel">
+            <div class="carousel-inner h-full">
+                <div class="carousel-item h-full active" data-bs-interval="3000">
+                    <img src="https://t3.ftcdn.net/jpg/03/60/19/34/360_F_360193480_kiF7OU7k3YUhAADbLQzobEFwgOeejHZJ.jpg"
+                        class="d-block w-full h-full object-cover" alt="Blood donation">
+                </div>
+                <div class="carousel-item h-full" data-bs-interval="3000">
+                    <img src="https://c0.wallpaperflare.com/preview/1023/625/239/blood-donation-blood-unit-of-blood-health.jpg"
+                        class="d-block w-full h-full object-cover" alt="Blood units for donation">
+                </div>
+                <div class="carousel-item h-full" data-bs-interval="3000">
+                    <img src="https://e1.pxfuel.com/desktop-wallpaper/558/737/desktop-wallpaper-blood-donation-blood-donor.jpg"
+                        class="d-block w-full h-full object-cover" alt="Blood donation event">
+                </div>
+            </div>
+            <!-- <button
+                class="carousel-control-prev absolute left-0 top-0 transform -translate-y-1/2 p-3 text-white bg-red-800 rounded-full"
+                type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                class="carousel-control-next absolute right-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-red-800 rounded-full"
+                type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button> -->
+        </div>
+        <!-- Overlay Text -->
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h1 class="text-5xl font-extrabold mb-4">Be a Hero, Donate Blood</h1>
+            <p class="text-2xl mb-6">Your blood donation can make a lifesaving difference.</p>
+            <a href="adduser.html"><button
+                    class="bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Donate
+                    Now</button></a>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="bg-white text-center py-16">
+        <h2 class="text-3xl font-bold text-red-800">Why Donate Blood?</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto mt-4">By donating blood, you help save lives and provide vital
+            resources for hospitals and clinics. It's a simple yet powerful way to make a positive impact on someone's
+            life. Become a part of the solution today.</p>
+        <button
+            class="mt-8 bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+            <a href="https://en.wikipedia.org/wiki/Blood_donation" target="_blank" class="no-underline text-white">
+                Learn More
+            </a>
+        </button>
+    </section>
+
+    <hr>
+    <!-- Information Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-red-700 text-center mb-6">Blood Banks in Nagpur</h2>
+
+            <div class="text-center mb-6">
+                <img src="./img/blood-banks.jpg" alt="Blood Banks" class="rounded-lg shadow-lg w-3/4 mx-auto">
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered text-center align-middle shadow-lg">
+                    <thead class="bg-red-700 text-white">
+                        <tr>
+                            <th>Srno</th>
+                            <th>Blood Bank Name</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ayush Blood Bank and Component Lab</td>
+                            <td>9th Floor A Wing Lokmat Building, Ramdas Peth, Nagpur – 440010</td>
+                            <td><a href="tel:07126618666" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    6618666</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Government Medical College and Hospital</td>
+                            <td>Near Hanuman Nagar, Medical Square, Nagpur – 440009</td>
+                            <td><a href="tel:07122744672" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2744672</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>I G M C Mayo Hospital</td>
+                            <td>Central Avenue Road, Nagpur - 440008</td>
+                            <td><a href="tel:07122728622" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2728622</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Rainbow Blood Bank</td>
+                            <td>282, Central Bazar Road, Ramdas Peth, Nagpur-440010</td>
+                            <td><a href="tel:07122528686" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2528686</a></td>
+                            <td><a href="https://rainbowbloodbank.org/" target="_blank" class="text-primary"><i
+                                        class="fas fa-globe"></i> Website</a></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jeevan Jyoti Blood Bank & Components</td>
+                            <td>1st Floor, Wing 2, J P Chambers, Madhav Nagar, South Ambazari Road, Nagpur – 440001</td>
+                            <td><a href="tel:07122231660" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2231660</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Daga Hospital</td>
+                            <td>Fawara Square, Gandhibagh, Nagpur - 440002</td>
+                            <td><a href="tel:07122729202" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2729202</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Lifeline Blood Bank</td>
+                            <td>Neeti Gaurav Complex, Ramdaspeth, Lokmat Square, Nagpur – 440012</td>
+                            <td><a href="tel:07126618222" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    6618222</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Hedgewar Blood Bank</td>
+                            <td>West High Court Road, Dharampeth, Nagpur – 440010</td>
+                            <td><a href="tel:07126657777" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    6657777</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Sainath Blood Bank</td>
+                            <td>1st Floor, Manoj Building, Near Gurudwara, Central Bazar Road, Ramdas Peth, Nagpur –
+                                440010</td>
+                            <td><a href="tel:07122420024" class="text-danger"><i class="fas fa-phone"></i> (0712)
+                                    2420024</a></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Super Specialty Hospital Blood Bank</td>
+                            <td>Near RST Cancer Hospital, Nagpur-440033</td>
+                            <td><a href="tel:0712746681" class="text-danger"><i class="fas fa-phone"></i> (0712) 74 6681
+                                    Ext. 215/284</a></td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Banks in Nagpur -->
+    <section class="bg-gray-100 py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Private & Government Blood Banks in Nagpur</h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4">
+                <a href="https://example.com/ayush-blood-bank" class="btn">Ayush Blood Bank</a>
+                <a href="https://example.com/gmc-blood-bank" class="btn">GMC Blood Bank</a>
+                <a href="https://example.com/igm-blood-bank" class="btn">IGMC Mayo Blood Bank</a>
+                <a href="https://rainbowbloodbank.org/" class="btn">Rainbow Blood Bank</a>
+                <a href="https://example.com/jeevan-jyoti-blood-bank" class="btn">Jeevan Jyoti Blood Bank</a>
+                <a href="https://example.com/daga-hospital-blood-bank" class="btn">Daga Hospital Blood Bank</a>
+                <a href="https://example.com/lifeline-blood-bank" class="btn">Lifeline Blood Bank</a>
+                <a href="https://example.com/hedgewar-blood-bank" class="btn">Hedgewar Blood Bank</a>
+                <a href="https://example.com/sainath-blood-bank" class="btn">Sainath Blood Bank</a>
+                <a href="https://example.com/super-specialty-blood-bank" class="btn">Super Specialty Blood Bank</a>
+                <a href="https://example.com/city-blood-bank" class="btn">City Blood Bank</a>
+                <a href="https://example.com/rst-cancer-blood-bank" class="btn">RST Cancer Hospital Blood Bank</a>
+                <a href="https://example.com/esis-hospital-blood-bank" class="btn">ESIS Hospital Blood Bank</a>
+                <a href="https://example.com/wankar-blood-bank" class="btn">Wankar Blood Bank</a>
+                <a href="https://example.com/mure-memorial-blood-bank" class="btn">Mure Memorial Blood Bank</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light text-center py-5">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-danger mb-4">Search Blood Banks in India</h2>
+    
+            <!-- Search Input -->
+            <div class="input-group mb-4 w-50 mx-auto">
+                <select class="form-control" id="citySearch">
+                    <option value="">Select a City</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Jaipur">Jaipur</option>
+                </select>
+                <button class="btn btn-danger" onclick="fetchBloodBanks()">Search</button>
+            </div>
+    
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Blood Bank Name</th>
+                            <th>Location</th>
+                            <th>Google Maps</th>
+                            <th>Contact Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bloodBankTable">
+                        <!-- Data will be inserted here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Sample data for 10 cities
+        const bloodBankData = {
+            "Delhi": [
+                { name: "AIIMS Blood Bank", address: "AIIMS, Ansari Nagar", contact: "011-26588500" },
+                { name: "Red Cross Society Blood Bank", address: "Daryaganj", contact: "011-23359329" }
+            ],
+            "Mumbai": [
+                { name: "KEM Hospital Blood Bank", address: "Parel", contact: "022-24107000" },
+                { name: "JJ Hospital Blood Bank", address: "Byculla", contact: "022-23735555" }
+            ],
+            "Kolkata": [
+                { name: "AMRI Hospital Blood Bank", address: "Dhakuria", contact: "033-66060000" },
+                { name: "Swasthya Bhawan Blood Bank", address: "Salt Lake", contact: "033-23330237" }
+            ],
+            "Chennai": [
+                { name: "Apollo Hospital Blood Bank", address: "Greams Road", contact: "044-28293333" },
+                { name: "Rajiv Gandhi Govt Hospital", address: "Park Town", contact: "044-25305000" }
+            ],
+            "Bangalore": [
+                { name: "St. John's Blood Bank", address: "Koramangala", contact: "080-22065000" },
+                { name: "Narayana Health Blood Bank", address: "Hosur Road", contact: "080-71222222" }
+            ],
+            "Hyderabad": [
+                { name: "NIMS Blood Bank", address: "Punjagutta", contact: "040-23489244" },
+                { name: "Osmania General Hospital", address: "Afzal Gunj", contact: "040-24600121" }
+            ],
+            "Pune": [
+                { name: "Sassoon Hospital Blood Bank", address: "Station Road", contact: "020-26128000" },
+                { name: "Ruby Hall Clinic Blood Bank", address: "Bund Garden", contact: "020-66455100" }
+            ],
+            "Ahmedabad": [
+                { name: "Civil Hospital Blood Bank", address: "Asarwa", contact: "079-22683771" },
+                { name: "Red Cross Society Blood Bank", address: "Paldi", contact: "079-26631662" }
+            ],
+            "Nagpur": [
+                { name: "Ayush Blood Bank", address: "Ramdas Peth", contact: "0712-6618666" },
+                { name: "Government Medical College", address: "Hanuman Nagar", contact: "0712-2744671" }
+            ],
+            "Jaipur": [
+                { name: "SMS Hospital Blood Bank", address: "JLN Marg", contact: "0141-2560291" },
+                { name: "J.K. Lone Blood Bank", address: "Moti Doongri", contact: "0141-2601361" }
+            ]
+        };
+    
+        function fetchBloodBanks() {
+            let city = document.getElementById('citySearch').value.trim();
+    
+            let tableBody = document.getElementById('bloodBankTable');
+            tableBody.innerHTML = ""; // Clear previous results
+    
+            if (city === "") {
+                alert("Please select a city!");
+                return;
+            }
+    
+            let data = bloodBankData[city];
+    
+            if (!data || data.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="5">No blood banks found in ${city}.</td></tr>`;
+                return;
+            }
+    
+            data.forEach((bank, index) => {
+                let row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${bank.name}</td>
+                    <td>${bank.address}</td>
+                    <td><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(bank.address)}" target="_blank">View on Map</a></td>
+                    <td>${bank.contact || 'N/A'}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+    </script>
+    
+
+
+    <!-- Footer -->
+    <footer class="bg-red-800 p-4 text-center text-white">
+        <p>© Blood Bank. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html> 

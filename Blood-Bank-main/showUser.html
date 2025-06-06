@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Users - Blood Bank</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-100" style="background-image: url(./img/p3.jpg);">
+
+    <!-- Navbar -->
+    <nav class="bg-red-800 p-4 shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-white tracking-wide no-underline hover:text-black">Blood
+                Bank</a>
+            <div class="flex space-x-6 items-center">
+                <a href="adduser.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Add
+                    User</a>
+                <a href="showUser.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Show
+                    Users</a>
+                <a href="search.html"
+                    class="bg-white text-red-800 hover:bg-red-600 hover:text-black font-bold py-2 px-4 rounded-full transition duration-300 no-underline">Search
+                    Users</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Table Section -->
+    <section class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold mb-6 text-center text-red-800">All Users</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+                <thead class="bg-red-800 text-white">
+                    <tr>
+                        <!-- <th class="py-2 px-4 border-b">ID</th> -->
+                        <th class="py-2 px-4 border-b">User ID</th>
+                        <th class="py-2 px-4 border-b">Name</th>
+                        <th class="py-2 px-4 border-b">Gender</th>
+                        <th class="py-2 px-4 border-b">Age</th>
+                        <th class="py-2 px-4 border-b">Blood Group</th>
+                        <th class="py-2 px-4 border-b">MobileNo</th>
+                        <th class="py-2 px-4 border-b">city</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- User data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    </div>
+        <hr class="my-4 border-t border-gray-300">
+        </div>
+        <hr class="my-4 border-t border-gray-300">
+        <div class="text-center">
+                <button type="button"
+                class="bg-red-800 text-white font-bold py-2 px-6 rounded-full hover:bg-red-600 transition duration-300"
+                id="b1">updated</button>
+    </div>
+    <script>
+        // Load users from localStorage
+        function loadUsers() {
+            let users = localStorage.getItem("users");
+            if (users) {
+                return JSON.parse(users);
+            } else {
+                return [];
+            }
+        }
+
+        $(document).ready(function ()  {
+            // Retrieve stored users
+            var users = loadUsers();
+
+            // Insert users into the table
+            var s = "";
+            users.forEach(e => {
+                s += "<tr>";
+                s += "<td class='border px-4 py-2'>" + e.userId + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.name + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.gender + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.age + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.bloodGroup + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.MobileNo + "</td>";
+                s += "<td class='border px-4 py-2'>" + e.city + "</td>";
+                s += "</tr>";
+            });
+            $("#userTableBody").html(s);
+        });
+    </script>
+
+</body>
+
+</html>
